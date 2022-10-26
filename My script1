@@ -1,0 +1,26 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("My script", "DarkTheme")
+
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Player")
+
+MainSection:NewSlider("Walk Speed", "SPEED!", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+MainSection:NewSlider("Jump Power", "Jump High!", 350, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+MainSection:NewButton("Reset WS/JP", "Resets to all defaults", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+local label1 = MainSection:NewLabel("Walkspeed" + game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+local label2 = MainSection:NewLabel("JumpPower" + game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+
+while 1==1 do
+    label:UpdateLabel("Walkspeed" + game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+    label:UpdateLabe2("JumpPower" + game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+end
